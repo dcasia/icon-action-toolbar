@@ -57,7 +57,7 @@ Please give a ⭐️ if this project helped you!
 - [Nova FilePond](https://github.com/dcasia/nova-filepond) - A Nova field for uploading File, Image and Video using Filepond.
 - [Custom Relationship Field](https://github.com/dcasia/custom-relationship-field) - Emulate HasMany relationship without having a real relationship set between resources.
 - [Column Toggler](https://github.com/dcasia/column-toggler) - A Laravel Nova package that allows you to hide/show columns in the index view.
-- [Batch Edit Toolbar](https://github.com/dcasia/icon-action-toolbar) - Allows you to update a single column of a resource all at once directly from the index page.
+- [Batch Edit Toolbar](https://github.com/dcasia/batch-edit-toolbar) - Allows you to update a single column of a resource all at once directly from the index page.
 
 ## License
 
