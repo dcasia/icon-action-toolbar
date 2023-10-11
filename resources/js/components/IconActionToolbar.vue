@@ -46,3 +46,11 @@
     }
 
 </script>
+
+<style>
+
+    div[dusk$="detail-component"] div.icon-action-toolbar {
+        @apply mx-0;
+    }
+
+</style>
