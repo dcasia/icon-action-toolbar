@@ -1,0 +1,38 @@
+{
+    "name": "digital-creative/icon-action-toolbar",
+    "description": "Allows you to update a single column of a resource all at once.",
+    "keywords": [
+        "laravel",
+        "nova",
+        "batch-edit",
+        "toolbar"
+    ],
+    "authors": [
+        {
+            "name": "Rafael Milewski"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=8.1",
+        "laravel/nova": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DigitalCreative\\IconActionToolbar\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DigitalCreative\\IconActionToolbar\\IconActionToolbarServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
+
