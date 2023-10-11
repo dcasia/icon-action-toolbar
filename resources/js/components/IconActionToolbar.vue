@@ -15,7 +15,7 @@
                     'hover:text-red-500': action.destructive,
                     'hover:text-primary-500': !action.destructive,
                 }"
-                class="flex h-9"
+                class="flex h-9 hover-element"
                 :trigger-override-function="() => $emit('click', action.uriKey)">
 
                 <div :class="{ 'px-3 h-9 flex justify-center items-center': standalone, 'px-2': !standalone }">
@@ -47,10 +47,22 @@
 
 </script>
 
-<style>
+<style lang="scss">
 
     div[dusk$="detail-component"] div.icon-action-toolbar {
         @apply mx-0;
+    }
+
+    table div.icon-action-toolbar .hover-element {
+
+        &:hover {
+            @apply bg-transparent #{!important};
+        }
+
+        button > div {
+            @apply px-3;
+        }
+
     }
 
 </style>
