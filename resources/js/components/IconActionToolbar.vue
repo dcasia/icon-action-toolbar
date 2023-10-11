@@ -20,7 +20,7 @@
 
                 <div :class="{ 'px-3 h-9 flex justify-center items-center': standalone, 'px-2': !standalone }">
 
-                    <Icon v-if="!!action.icon" type="cube-transparent"/>
+                    <Icon v-if="typeof action.icon !== 'string'" type="cube-transparent"/>
 
                     <template v-else-if="action.icon.trim().startsWith('<svg')">
                         <div v-html="action.icon"/>
