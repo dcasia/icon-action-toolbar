@@ -21,7 +21,7 @@ composer require digital-creative/icon-action-toolbar
 
 ## Basic Usage
 
-All you need to do is append an `->icon()` to all your actions, it accepts either a icon name from heroicons v1 or inlined svg string.
+All you need to do is append an `->icon()` to all your actions, it accepts either an icon name from heroicons v1 or inlined svg string.
 
 ```php
 class UserResource extends Resource
@@ -32,7 +32,7 @@ class UserResource extends Resource
             UpdateSubscription::make()->icon('credit-card'),
             Unban::make()->icon('fire'),
             
-            DeleteInactiveUsers::make()->standalone()->icon('hand'),
+            DeleteInactiveUsers::make()->standalone()->icon('hand', label: 'Ban!'),
             SendWeekNewsletter::make()->standalone()->icon('<svg>...</svg>'),
         ];
     }
