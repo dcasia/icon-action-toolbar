@@ -13,8 +13,15 @@ class IconActionToolbarServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Action::macro('icon', function (callable|string $value) {
-            return $this->withMeta([ 'icon' => value($value) ]);
+        Action::macro('icon', function (string $value, ?string $label = null) {
+
+            return $this->withMeta([
+                'iconActionToolbar' => [
+                    'icon' => $value,
+                    'label' => $label,
+                ],
+            ]);
+
         });
 
         Nova::serving(function (ServingNova $event): void {
