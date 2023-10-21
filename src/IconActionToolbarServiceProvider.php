@@ -26,9 +26,20 @@ class IconActionToolbarServiceProvider extends ServiceProvider
 
         Nova::serving(function (ServingNova $event): void {
 
+            Nova::provideToScript([
+                'icon_action_toolbar' => config('nova.vendors.icon_action_toolbar'),
+            ]);
+
             Nova::script('icon-action-toolbar', __DIR__ . '/../dist/js/tool.js');
             Nova::style('icon-action-toolbar', __DIR__ . '/../dist/css/tool.css');
 
         });
+    }
+
+    public function register(): void
+    {
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/nova.php', 'nova.vendors.icon_action_toolbar',
+        );
     }
 }

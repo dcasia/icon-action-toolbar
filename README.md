@@ -39,6 +39,25 @@ class UserResource extends Resource
 }
 ```
 
+## Configuration
+
+You can customize the icons by adding the following to your nova config file:
+
+```php
+// config/nova.php
+
+'vendors' => [
+    'icon_action_toolbar' => [
+        'icons' => [
+            'replicate' => 'duplicate',
+            'preview' => 'document-search',
+            'impersonate' => 'finger-print',
+            'delete_resource' => '<svg>...</svg>',
+        ],
+    ]
+]
+```
+
 ## ⭐️ Show Your Support
 
 Please give a ⭐️ if this project helped you!

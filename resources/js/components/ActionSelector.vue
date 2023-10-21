@@ -80,13 +80,19 @@
         determineActionStrategy()
     }
 
-    const actionsForSelect = computed(() => [
-        ...availableActions.value,
-        ...availablePivotActions.value.map(a => ({
-            group: props.pivotName,
-            uriKey: a.uriKey,
-            name: a.name,
-        })),
-    ])
+    const actionsForSelect = computed(() => {
+
+        const actions = [
+            ...availableActions.value,
+            ...availablePivotActions.value.map(a => ({
+                group: props.pivotName,
+                uriKey: a.uriKey,
+                name: a.name,
+            })),
+        ]
+
+        return actions.filter(action => action.showOnTableRow === false)
+
+    })
 
 </script>
