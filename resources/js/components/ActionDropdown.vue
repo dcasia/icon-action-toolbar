@@ -26,7 +26,7 @@
             :data="actionResponseData"
         />
 
-        <IconActionToolbar :actions="availableActions" @click="onClick" :standalone="true"/>
+        <IconActionToolbar :parent-type="parentType" :actions="availableActions" @click="onClick" :standalone="true"/>
 
     </div>
 
@@ -71,6 +71,7 @@
     const instance = getCurrentInstance()
 
     const runAction = () => executeAction(() => emitter('actionExecuted'))
+    const parentType = instance.parent.vnode.type.__file
 
     const onClick = event => {
 
@@ -164,21 +165,7 @@
 
             }
 
-            /**
-             * <DropdownMenuItem
-             *           v-if="resource.authorizedToDelete && !resource.softDeleted"
-             *           data-testid="open-delete-modal"
-             *           dusk="open-delete-modal-button"
-             *           @click.prevent="openDeleteModal"
-             *           :destructive="true"
-             *         >
-             *           {{ __('Delete Resource') }}
-             *         </DropdownMenuItem>
-             */
-
         }
-
-        console.log(actions)
 
         return actions
 

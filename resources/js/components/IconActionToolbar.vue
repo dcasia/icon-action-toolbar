@@ -12,8 +12,9 @@
                 type="button"
                 @click.stop="() => $emit('click', uriKey)"
                 :class="{
-                    'hover:text-red-500': destructive,
-                    'hover:text-primary-500': !destructive
+                    'hover:text-red-500': destructive && !isDetailView,
+                    'hover:text-primary-500': !destructive && !isDetailView,
+                    'rounded hover:bg-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring px-3 hover:text-gray-400': standalone && isDetailView
                 }"
                 class="toolbar-button px-2 disabled:opacity-50 disabled:pointer-events-none">
 
@@ -41,7 +42,13 @@
 
     export default {
         emits: [ 'click' ],
-        props: [ 'actions', 'standalone' ],
+        props: [ 'actions', 'standalone', 'parentType' ],
+        computed: {
+            isDetailView() {
+                return Nova.$router.page.component === 'Nova.Detail'
+                    && this.parentType === 'DetailActionDropdown.vue'
+            },
+        },
     }
 
 </script>
