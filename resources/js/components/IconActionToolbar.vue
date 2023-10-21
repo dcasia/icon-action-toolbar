@@ -12,6 +12,7 @@
                 type="button"
                 @click.stop="() => $emit('click', uriKey)"
                 :class="{
+                    'h-9 w-9': !isDetailView && !standalone,
                     'hover:text-red-500': destructive && !isDetailView,
                     'hover:text-primary-500': !destructive && !isDetailView,
                     'rounded hover:bg-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring px-3 hover:text-gray-400': standalone && isDetailView
