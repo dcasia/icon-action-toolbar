@@ -154,7 +154,7 @@
 
             }
 
-            if (resource.authorizedToDelete && !resource.softDeleted) {
+            if (resource.authorizedToDelete && !resource.softDeleted && Nova.$router.page.component !== 'Nova.Index') {
 
                 actions.push({
                     name: __('Delete Resource'),

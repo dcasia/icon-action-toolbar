@@ -21,7 +21,7 @@ composer require digital-creative/icon-action-toolbar
 
 ## Basic Usage
 
-All you need to do is append an `->icon()` to all your actions, it accepts either an icon name from heroicons v1 or inlined svg string.
+All you need to do is append an `->icon()` to all your actions, it accepts either an icon name from [heroicons](https://heroicons.com/) or inlined svg string.
 
 ```php
 class UserResource extends Resource
@@ -49,8 +49,8 @@ You can customize the icons by adding the following to your nova config file:
 'vendors' => [
     'icon_action_toolbar' => [
         'icons' => [
-            'replicate' => 'duplicate',
-            'preview' => 'document-search',
+            'replicate' => 'square-2-stack',
+            'preview' => 'viewfinder-circle',
             'impersonate' => 'finger-print',
             'delete_resource' => '<svg>...</svg>',
         ],

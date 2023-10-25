@@ -2,7 +2,11 @@
 
     <div class="icon-action-toolbar w-full">
 
-        <IconActionToolbar :actions="actionsForSelect" @click="handleSelectionChange" :standalone="false"/>
+        <IconActionToolbar
+            :actions="actionsForSelect"
+            @click="handleSelectionChange"
+            :standalone="false"
+            parent-type="ActionSelector"/>
 
         <!-- Confirm Action Modal -->
         <component
