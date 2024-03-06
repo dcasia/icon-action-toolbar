@@ -13,12 +13,12 @@
                 @click.stop="() => $emit('click', uriKey)"
                 :class="{
                     'dark:hover:text-primary-500': parentType === 'ActionSelector',
-                    'h-9 w-auto': !isDetailView && !standalone,
+                    'w-auto': !isDetailView && !standalone,
                     'hover:text-red-500': destructive && !isDetailView,
                     'dark:hover:text-primary-500 hover:text-primary-500': !destructive && !isDetailView,
                     'rounded hover:bg-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring px-3 hover:text-gray-500': standalone && isDetailView
                 }"
-                class="toolbar-button dark:text-gray-400 text-gray-500 px-2 disabled:opacity-50 disabled:pointer-events-none">
+                class="toolbar-button h-9 dark:text-gray-400 text-gray-500 px-2 disabled:opacity-50 disabled:pointer-events-none">
 
                 <Icon v-if="typeof iconActionToolbar.icon !== 'string'" name="cube-transparent"/>
 
