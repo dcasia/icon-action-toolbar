@@ -15,8 +15,15 @@
     "license": "MIT",
     "require": {
         "php": ">=8.1",
-        "laravel/nova": "^4.28.0"
+        "laravel/nova": "^4.28.0",
+        "nova-kit/nova-packages-tool": "^1.17"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "DigitalCreative\\IconActionToolbar\\": "src/"
@@ -35,4 +42,3 @@
     "minimum-stability": "dev",
     "prefer-stable": true
 }
-
