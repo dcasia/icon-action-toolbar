@@ -5,9 +5,10 @@
             class="flex dark:focus:ring-gray-600 justify-evenly">
 
             <div v-for="{ iconActionToolbar, destructive, uriKey, name } of actions">
+                {{ console.log(parentType) }}
                 <button v-tooltip="name" v-if="iconActionToolbar" type="button"
                     @click.stop="() => $emit('click', uriKey)" :class="{
-                        'dark:hover:[&:not(:disabled)]:text-primary-500': parentType === 'ActionSelector',
+                        'dark:hover:[&:not(:disabled)]:text-primary-500 px-2': parentType === 'ActionSelector',
                         'w-auto': !isDetailView && !standalone,
                         'px-3 w-auto': !isDetailView && parentType === 'LoadingView.vue',
                         'hover:[&:not(:disabled)]:text-red-400 dark:hover:[&:not(:disabled)]:text-red-400 w-9': destructive && !isDetailView,
