@@ -13,7 +13,7 @@
                         'px-3 w-auto': !isDetailView && parentType === 'LoadingView.vue',
                         'hover:[&:not(:disabled)]:text-red-400 dark:hover:[&:not(:disabled)]:text-red-400 w-9': destructive && !isDetailView,
                         'hover:[&:not(:disabled)]:text-primary-500 dark:hover:[&:not(:disabled)]:text-primary-500 w-9': !destructive && !isDetailView,
-                        'rounded hover:[&:not(:disabled)]:text-primary-200 dark:hover:[&:not(:disabled)]:text-primary-800 focus:outline-none focus:ring px-3 hover:text-gray-500': standalone && isDetailView
+                        'rounded hover:bg-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring px-3 hover:text-gray-500': standalone && isDetailView
                     }"
                     class="inline-flex items-center justify-center toolbar-button h-9 dark:text-gray-400 text-gray-500 disabled:opacity-50 disabled:pointer-events-none">
 
