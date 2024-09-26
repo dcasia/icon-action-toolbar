@@ -59,7 +59,7 @@ export default {
 <style lang="scss">
 .icon-action-toolbar-wrapper {
     width: calc(100% - 48px);
-    overflow: scroll;
+    overflow-x: auto;
 }
 
 div[dusk$="detail-component"] div.icon-action-toolbar {
