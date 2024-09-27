@@ -1,7 +1,7 @@
 <template>
     <div :class="{ 'icon-action-toolbar-wrapper': standalone && isDetailView }">
         <div v-if="actions.length > 0"
-            :class="{ 'rounded': standalone, 'rounded-lg bg-gray-700/5 dark:bg-gray-700': !standalone }"
+            :class="{ 'rounded': standalone, 'rounded bg-gray-700/5 dark:bg-gray-950': !standalone }"
             class="flex dark:focus:ring-gray-600 justify-evenly">
 
             <div v-for="{ iconActionToolbar, destructive, uriKey, name } of actions">
