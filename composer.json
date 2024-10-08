@@ -15,7 +15,8 @@
     "license": "MIT",
     "require": {
         "php": ">=8.1",
-        "laravel/nova": "^4.28.0"
+        "laravel/nova": "^4.28.0",
+        "nova-kit/nova-packages-tool": "^1.17"
     },
     "autoload": {
         "psr-4": {
@@ -35,4 +36,3 @@
     "minimum-stability": "dev",
     "prefer-stable": true
 }
-

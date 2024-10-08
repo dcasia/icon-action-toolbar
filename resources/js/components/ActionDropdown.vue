@@ -14,8 +14,7 @@
             :action="selectedAction"
             :errors="errors"
             @confirm="runAction"
-            @close="closeConfirmationModal"
-        />
+            @close="closeConfirmationModal"/>
 
         <component
             v-if="responseModalVisible"
@@ -23,12 +22,15 @@
             :is="actionResponseData?.modal"
             @confirm="handleResponseModalConfirm"
             @close="handleResponseModalClose"
-            :data="actionResponseData"
-        />
-
-        <IconActionToolbar :parent-type="parentType" :actions="availableActions" @click="onClick" :standalone="true"/>
+            :data="actionResponseData"/>
 
     </div>
+
+    <IconActionToolbar
+        :parent-type="parentType"
+        :actions="availableActions"
+        @click="onClick"
+        :standalone="true"/>
 
 </template>
 
@@ -105,8 +107,9 @@
         const resource = instance.parent?.props?.resource
         const currentUser = Nova.store.getters[ 'currentUser' ]
         const config = Nova.config('icon_action_toolbar')
+        const isViaManyToMany = instance.parent?.props?.viaManyToMany === true
 
-        if (resource) {
+        if (resource && isViaManyToMany === false) {
 
             if (resource.authorizedToReplicate) {
 
@@ -120,7 +123,7 @@
                             viaResource: props.viaResource,
                             viaResourceId: props.viaResourceId,
                             viaRelationship: props.viaRelationship,
-                        })
+                        }).replace(Nova.config('base'), '')
 
                         Nova.visit(url)
 
