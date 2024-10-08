@@ -118,7 +118,6 @@
                     iconActionToolbar: { icon: config.icons.replicate },
                     onClick: () => {
 
-
                         const url = instance.ctx.$url(`/resources/${ props.resourceName }/${ resource.id.value }/replicate`, {
                             viaResource: props.viaResource,
                             viaResourceId: props.viaResourceId,
