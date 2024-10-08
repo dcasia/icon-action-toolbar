@@ -18,12 +18,6 @@
         "laravel/nova": "^4.28.0",
         "nova-kit/nova-packages-tool": "^1.17"
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://nova.laravel.com"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "DigitalCreative\\IconActionToolbar\\": "src/"
