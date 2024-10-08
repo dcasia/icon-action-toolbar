@@ -107,8 +107,9 @@
         const resource = instance.parent?.props?.resource
         const currentUser = Nova.store.getters[ 'currentUser' ]
         const config = Nova.config('icon_action_toolbar')
+        const isViaManyToMany = instance.parent?.props?.viaManyToMany === true
 
-        if (resource) {
+        if (resource && isViaManyToMany === false) {
 
             if (resource.authorizedToReplicate) {
 
