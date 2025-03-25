@@ -20,7 +20,7 @@ class NovaExtension {
 
         webpackConfig.resolve.alias = {
             ...(webpackConfig.resolve.alias || {}),
-            '@': path.resolve(__dirname, '../../vendor/laravel/nova/resources/js/'),
+            '@': path.resolve(__dirname, '../../../vendor/laravel/nova/resources/js/'),
         }
 
         webpackConfig.output = {

@@ -11,6 +11,7 @@
                 <button
                     v-tooltip="name"
                     v-if="iconActionToolbar"
+                    :data-action-id="uriKey"
                     type="button"
                     @click.stop="() => $emit('click', uriKey)"
                     :class="{
