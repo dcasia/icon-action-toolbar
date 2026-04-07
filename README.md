@@ -9,19 +9,36 @@
   <img alt="Icon Action Toolbar in Action" src="https://raw.githubusercontent.com/dcasia/icon-action-toolbar/main/screenshots/light.png">
 </picture>
 
-Replaces the default boring action menu with an inline row of icon-based actions. 
+Replaces the default boring action menu with an inline row of icon-based actions.
+
+> **Note:** This is a fork of [dcasia/icon-action-toolbar](https://github.com/dcasia/icon-action-toolbar) maintained by [Bora-Bora-Community](https://github.com/Bora-Bora-Community) with Nova 5 compatibility and hybrid icon/dropdown support.
 
 # Installation
 
-You can install the package via composer:
+Add the fork as a VCS repository in your `composer.json`:
+
+```json
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/Bora-Bora-Community/icon-action-toolbar"
+    }
+]
+```
+
+Then require the package:
 
 ```
-composer require digital-creative/icon-action-toolbar
+composer require digital-creative/icon-action-toolbar:dev-main
 ```
+
+Requires **Laravel Nova ^5.0**.
 
 ## Basic Usage
 
-All you need to do is append an `->icon()` to all your actions, it accepts either an icon name from [heroicons](https://heroicons.com/) or inlined svg string.
+Actions with `->icon()` are displayed as inline icon buttons. Actions **without** `->icon()` appear in an ellipsis dropdown menu (instead of being hidden). This gives you a hybrid toolbar: frequently used actions as icons, less common ones in a dropdown.
+
+Append `->icon()` to any action — it accepts either an icon name from [heroicons](https://heroicons.com/) or an inlined SVG string.
 
 ```php
 class UserResource extends Resource

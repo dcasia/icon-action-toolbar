@@ -2,21 +2,20 @@
 
     <div :class="{ 'icon-action-toolbar-wrapper': standalone && isDetailView }">
 
-        <div v-if="actions.length > 0"
+        <div v-if="iconActions.length > 0"
              :class="{ 'rounded': standalone, 'rounded bg-gray-700/5 dark:bg-gray-950': !standalone }"
-             class="flex dark:focus:ring-gray-600 justify-evenly">
+             class="flex dark:focus:ring-gray-600 items-center">
 
-            <div v-for="{ iconActionToolbar, destructive, uriKey, name } of actions">
+            <div v-for="{ iconActionToolbar, destructive, uriKey, name } of iconActions" :key="uriKey">
 
                 <button
                     v-tooltip="name"
-                    v-if="iconActionToolbar"
                     type="button"
                     @click.stop="() => $emit('click', uriKey)"
                     :class="{
                         'dark:hover:[&:not(:disabled)]:text-primary-500 px-2': parentType === 'ActionSelector',
                         'w-auto': !isDetailView && !standalone,
-                        'px-3 w-auto': !isDetailView && parentType === 'LoadingView.vue',
+                        'px-3 w-auto': !isDetailView && isStandaloneNonDetail,
                         'hover:[&:not(:disabled)]:text-red-400 dark:hover:[&:not(:disabled)]:text-red-400 min-w-9': destructive && !isDetailView,
                         'hover:[&:not(:disabled)]:text-primary-500 dark:hover:[&:not(:disabled)]:text-primary-500 min-w-9': !destructive && !isDetailView,
                         'rounded hover:bg-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring px-3 hover:text-gray-500': standalone && isDetailView,
@@ -45,21 +44,31 @@
 
 </template>
 
-<script>
+<script setup>
 
-    import { Icon, Button } from 'laravel-nova-ui'
+    import { Icon } from 'laravel-nova-ui'
+    import { computed } from 'vue'
+    import { useNovaPage } from '../composables/useNovaPage'
 
-    export default {
-        components: { Icon, Button },
-        emits: [ 'click' ],
-        props: [ 'actions', 'standalone', 'parentType' ],
-        computed: {
-            isDetailView() {
-                return Nova.$router.page.component === 'Nova.Detail'
-                    && this.parentType === 'DetailActionDropdown.vue'
-            },
-        },
-    }
+    defineEmits(['click'])
+
+    const props = defineProps({
+        actions: { type: Array, default: () => [] },
+        standalone: { type: Boolean, default: false },
+        parentType: { type: String, default: '' },
+    })
+
+    const { isDetailPage } = useNovaPage()
+
+    const isDetailView = computed(() => {
+        return isDetailPage.value && props.parentType === 'DetailActionDropdown'
+    })
+
+    const isStandaloneNonDetail = computed(() => {
+        return props.parentType === 'LoadingView'
+    })
+
+    const iconActions = computed(() => props.actions.filter(a => a.iconActionToolbar))
 
 </script>
 
